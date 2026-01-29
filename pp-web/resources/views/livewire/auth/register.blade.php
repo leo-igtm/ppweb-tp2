@@ -26,6 +26,12 @@
             placeholder="email@example.com"
         />
 
+        <!-- Role -->
+        <flux:select wire:model="role" label="Tipo de cuenta" variant="filled">
+            <option value="cliente">Cliente</option>
+            <option value="agente">Agente Inmobiliario</option>
+        </flux:select>
+
         <!-- Password -->
         <flux:input
             wire:model="password"
