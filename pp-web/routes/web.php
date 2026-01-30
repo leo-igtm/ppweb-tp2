@@ -8,9 +8,14 @@ use App\Livewire\Propiedades\ListarPropiedades;
 use App\Livewire\Propiedades\CrearPropiedad;
 use App\Livewire\Propiedades\EditarPropiedad;
 use App\Livewire\Propiedades\VerPropiedad;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
 // Rutas públicas - Inertia
+Route::get('/test', function () {
+    return Inertia::render('Test');
+})->name('test');
+
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
 Route::get('propiedades', [HomeController::class, 'propiedades'])->name('propiedades.public');
 Route::get('propiedades/{propiedad}', [HomeController::class, 'verPropiedad'])->name('propiedades.show.public');
