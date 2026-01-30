@@ -22,7 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
     ];
 
     /**
@@ -58,37 +57,5 @@ class User extends Authenticatable
             ->take(2)
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
-    }
-
-    /**
-     * Check if user has admin role
-     */
-    public function isAdmin(): bool
-    {
-        return $this->role === 'admin';
-    }
-
-    /**
-     * Check if user has agente role
-     */
-    public function isAgente(): bool
-    {
-        return $this->role === 'agente';
-    }
-
-    /**
-     * Check if user has cliente role
-     */
-    public function isCliente(): bool
-    {
-        return $this->role === 'cliente';
-    }
-
-    /**
-     * Get the properties for this user (agente)
-     */
-    public function propiedades()
-    {
-        return $this->hasMany(Propiedad::class, 'agente_id');
     }
 }

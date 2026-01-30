@@ -20,8 +20,6 @@ class Register extends Component
     public string $password = '';
 
     public string $password_confirmation = '';
-    
-    public string $role = 'cliente';
 
     /**
      * Handle an incoming registration request.
@@ -32,7 +30,6 @@ class Register extends Component
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', 'in:cliente,agente'],
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
