@@ -1,8 +1,8 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/livewire-starter-kit",
+    "name": "ark-home/inmobiliaria",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "description": "Plataforma integral de gestión inmobiliaria con Laravel, Livewire y React",
     "keywords": [
         "laravel",
         "framework"

@@ -1,2 +1,2 @@
-# ppweb-tp2
-Proyecto de inmobiliaria realizado con php-lavarel
+# Ark-Home
+Plataforma integral de gestión inmobiliaria realizado con PHP Laravel y React

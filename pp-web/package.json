@@ -1,4 +1,6 @@
 {
+    "name": "ark-home",
+    "description": "Plataforma integral de gestión inmobiliaria",
     "private": true,
     "type": "module",
     "scripts": {
