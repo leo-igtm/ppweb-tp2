@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Inmobiliaria TP2</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bg-primary text-white p-3 d-flex align-items-center">
+    <img src="img/logo.webp" alt="Logo Inmobiliaria" width="80" class="me-3">
+    <h1 class="h3 mb-0">Administración de Usuarios</h1>
+    <nav class="ms-auto">
+      <a href="index.html" class="text-white me-3">Inicio</a>
+      <a href="propiedades.html" class="text-white me-3">Propiedades</a>
+      <a href="contacto.html" class="text-white me-3">Contacto</a>
+      <a href="usuarios.html" class="text-white">CRUD Usuarios</a>
+    </nav>
+  </header>
+  <main class="container my-5">
+    <h2>CRUD de Usuarios (Maquetado)</h2>
+    <section class="mb-5">
+      <h3>Agregar nuevo usuario</h3>
+      <form class="p-4 border rounded bg-white shadow-sm" style="max-width: 500px; margin: auto;">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="rol" class="form-label">Rol:</label>
+          <select id="rol" name="rol" class="form-select">
+            <option>Administrador</option>
+            <option>Agente</option>
+            <option>Invitado</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Crear Usuario</button>
+      </form>
+    </section>
+    <section>
+      <h3>Lista de Usuarios (Ejemplo)</h3>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle bg-white">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Juan Pérez</td>
+              <td>juan@example.com</td>
+              <td>Administrador</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Editar</button>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Maria López</td>
+              <td>maria@example.com</td>
+              <td>Agente</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Editar</button>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+            <!-- Más usuarios aquí -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-dark text-white text-center py-2">
+    <p class="mb-0">© 2025 Inmobiliaria TP2</p>
+  </footer>
+</body>
+</html>
