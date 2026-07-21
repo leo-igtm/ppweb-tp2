@@ -1,0 +1,12 @@
+[build]
+  command = "cd pp-web && npm ci && npm run build"
+  publish = "pp-web/dist"
+
+[context.production.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
