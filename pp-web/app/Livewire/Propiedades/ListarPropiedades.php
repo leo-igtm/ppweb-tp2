@@ -51,9 +51,9 @@ class ListarPropiedades extends Component
         $propiedad = Propiedad::findOrFail($id);
 
         // Verificar que el usuario sea admin o el agente propietario
-        if (auth()->user()->isAdmin() || 
+        if (auth()->user()->isAdmin() ||
             (auth()->user()->isAgente() && $propiedad->agente_id == auth()->id())) {
-            
+
             // Eliminar imagen si existe
             if ($propiedad->imagen && \Storage::disk('public')->exists($propiedad->imagen)) {
                 \Storage::disk('public')->delete($propiedad->imagen);

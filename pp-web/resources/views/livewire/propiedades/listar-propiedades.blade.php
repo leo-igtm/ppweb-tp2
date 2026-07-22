@@ -6,7 +6,7 @@
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-gray-900">Propiedades</h2>
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgente())
-                        <a href="{{ route('propiedades.create') }}" 
+                        <a href="{{ route('propiedades.create') }}"
                            class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">
                             + Nueva Propiedad
                         </a>
@@ -151,9 +151,9 @@
                                             <a href="{{ route('propiedades.show', $propiedad) }}" 
                                                class="text-blue-600 hover:text-blue-900 mr-3">Ver</a>
                                             @if(auth()->user()->isAdmin() || (auth()->user()->isAgente() && $propiedad->agente_id == auth()->id()))
-                                                <a href="{{ route('propiedades.edit', $propiedad) }}" 
+                                                <a href="{{ route('propiedades.edit', $propiedad) }}"
                                                    class="text-indigo-600 hover:text-indigo-900 mr-3">Editar</a>
-                                                <button wire:click="eliminar({{ $propiedad->id }})" 
+                                                <button wire:click="eliminar({{ $propiedad->id }})"
                                                         wire:confirm="¿Estas seguro de eliminar esta propiedad?"
                                                         class="text-red-600 hover:text-red-900">Eliminar</button>
                                             @endif

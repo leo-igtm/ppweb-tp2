@@ -41,26 +41,26 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "/usr/bin/php8.2 artisan package:discover --ansi"
+            "php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "/usr/bin/php8.2 artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
-            "/usr/bin/php8.2 -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "/usr/bin/php8.2 artisan key:generate --ansi",
-            "/usr/bin/php8.2 -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "/usr/bin/php8.2 artisan migrate --graceful --ansi"
+            "php artisan key:generate --ansi",
+            "php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "php artisan migrate --graceful --ansi"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"/usr/bin/php8.2 artisan serve\" \"/usr/bin/php8.2 artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
         ],
         "test": [
-            "/usr/bin/php8.2 artisan config:clear --ansi",
-            "/usr/bin/php8.2 artisan test"
+            "php artisan config:clear --ansi",
+            "php artisan test"
         ]
     },
     "extra": {

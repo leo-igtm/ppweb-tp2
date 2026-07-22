@@ -31,7 +31,7 @@ class EditarPropiedad extends Component
         $propiedad = Propiedad::findOrFail($propiedad);
 
         // Verificar permisos
-        if (!auth()->user()->isAdmin() && 
+        if (!auth()->user()->isAdmin() &&
             (!auth()->user()->isAgente() || $propiedad->agente_id != auth()->id())) {
             abort(403, 'No tienes permiso para editar esta propiedad.');
         }

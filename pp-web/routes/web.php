@@ -9,6 +9,7 @@ use App\Livewire\Propiedades\CrearPropiedad;
 use App\Livewire\Propiedades\EditarPropiedad;
 use App\Livewire\Propiedades\VerPropiedad;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -34,10 +35,6 @@ Route::get('test', function (){
 
 
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
@@ -57,5 +54,30 @@ Route::middleware(['auth', 'role:admin,agente'])->group(function () {
     Route::get('dashboard/propiedades/crear/nueva', CrearPropiedad::class)->name('propiedades.create');
     Route::get('dashboard/propiedades/{propiedad}/editar', EditarPropiedad::class)->name('propiedades.edit');
 });
+
+
+Route::get('dashboard', function () {
+    $user = Auth::user();
+    if (!$user) {
+        abort(403);
+    }
+
+    /** @var User $user */
+    if ($user->isAdmin()) {
+        return Inertia::render('Dashboard/Admin');
+    }
+    if ($user->isAgente()) {
+        return Inertia::render('Dashboard/Agente');
+    }
+    if ($user->isCliente()) {
+        return Inertia::render('Dashboard/Cliente');
+    }
+    if ($user->isGerente()) {
+        return Inertia::render('Dashboard/Gerente');
+    }
+
+    return Inertia::render('Welcome');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
