@@ -1,0 +1,275 @@
+{
+  "_AppLayout-Cl1ifrvE.js": {
+    "file": "assets/AppLayout-Cl1ifrvE.js",
+    "name": "AppLayout",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_index-l_LHKb8r.js": {
+    "file": "assets/index-l_LHKb8r.js",
+    "name": "index"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-PV2s7c32.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/Pages/Contacto.jsx": {
+    "file": "assets/Contacto-ePRvt9_w.js",
+    "name": "Contacto",
+    "src": "resources/js/Pages/Contacto.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Admin.jsx": {
+    "file": "assets/Admin-b9M4Hzwe.js",
+    "name": "Admin",
+    "src": "resources/js/Pages/Dashboard/Admin.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Admin/Estadisticas.jsx": {
+    "file": "assets/Estadisticas-3l-2O-u9.js",
+    "name": "Estadisticas",
+    "src": "resources/js/Pages/Dashboard/Admin/Estadisticas.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Admin/Usuarios.jsx": {
+    "file": "assets/Usuarios-mesg6Qxp.js",
+    "name": "Usuarios",
+    "src": "resources/js/Pages/Dashboard/Admin/Usuarios.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Agente.jsx": {
+    "file": "assets/Agente-CrV7Iaao.js",
+    "name": "Agente",
+    "src": "resources/js/Pages/Dashboard/Agente.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Cliente.jsx": {
+    "file": "assets/Cliente-P1BStJrW.js",
+    "name": "Cliente",
+    "src": "resources/js/Pages/Dashboard/Cliente.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Gerente.jsx": {
+    "file": "assets/Gerente-hnLFnIbm.js",
+    "name": "Gerente",
+    "src": "resources/js/Pages/Dashboard/Gerente.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-l_LHKb8r.js",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Dashboard/Gerente/Permisos.jsx": {
+    "file": "assets/Permisos-Cl6jeQMj.js",
+    "name": "Permisos",
+    "src": "resources/js/Pages/Dashboard/Gerente/Permisos.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-l_LHKb8r.js",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Login/login.jsx": {
+    "file": "assets/login-pl4YbONb.js",
+    "name": "login",
+    "src": "resources/js/Pages/Login/login.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Propiedades.jsx": {
+    "file": "assets/Propiedades-B3p3J4KU.js",
+    "name": "Propiedades",
+    "src": "resources/js/Pages/Propiedades.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Propiedades/Crear.jsx": {
+    "file": "assets/Crear-J1_3rWCE.js",
+    "name": "Crear",
+    "src": "resources/js/Pages/Propiedades/Crear.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js",
+      "_index-l_LHKb8r.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Propiedades/Editar.jsx": {
+    "file": "assets/Editar-CS6tuhjB.js",
+    "name": "Editar",
+    "src": "resources/js/Pages/Propiedades/Editar.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js",
+      "_index-l_LHKb8r.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Register/register.jsx": {
+    "file": "assets/register-vu4oeIc1.js",
+    "name": "register",
+    "src": "resources/js/Pages/Register/register.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Servicios.jsx": {
+    "file": "assets/Servicios-BMoTO5lR.js",
+    "name": "Servicios",
+    "src": "resources/js/Pages/Servicios.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Test.jsx": {
+    "file": "assets/Test-DJviSwKE.js",
+    "name": "Test",
+    "src": "resources/js/Pages/Test.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/VerPropiedad.jsx": {
+    "file": "assets/VerPropiedad-BRQY8fbn.js",
+    "name": "VerPropiedad",
+    "src": "resources/js/Pages/VerPropiedad.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/Pages/Welcome.jsx": {
+    "file": "assets/Welcome-8UDz8Vuv.js",
+    "name": "Welcome",
+    "src": "resources/js/Pages/Welcome.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AppLayout-Cl1ifrvE.js"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-ClINm6vE.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/Pages/Contacto.jsx",
+      "resources/js/Pages/Dashboard/Admin.jsx",
+      "resources/js/Pages/Dashboard/Admin/Estadisticas.jsx",
+      "resources/js/Pages/Dashboard/Admin/Usuarios.jsx",
+      "resources/js/Pages/Dashboard/Agente.jsx",
+      "resources/js/Pages/Dashboard/Cliente.jsx",
+      "resources/js/Pages/Dashboard/Gerente.jsx",
+      "resources/js/Pages/Dashboard/Gerente/Permisos.jsx",
+      "resources/js/Pages/Login/login.jsx",
+      "resources/js/Pages/Propiedades.jsx",
+      "resources/js/Pages/Propiedades/Crear.jsx",
+      "resources/js/Pages/Propiedades/Editar.jsx",
+      "resources/js/Pages/Register/register.jsx",
+      "resources/js/Pages/Servicios.jsx",
+      "resources/js/Pages/Test.jsx",
+      "resources/js/Pages/VerPropiedad.jsx",
+      "resources/js/Pages/Welcome.jsx"
+    ],
+    "css": [
+      "assets/app-PV2s7c32.css"
+    ]
+  }
+}

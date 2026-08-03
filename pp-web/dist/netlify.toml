@@ -1,0 +1,12 @@
+[build]
+  command = "npm ci && npm run build && npm run package:dist"
+  publish = "dist"
+
+[context.production.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
