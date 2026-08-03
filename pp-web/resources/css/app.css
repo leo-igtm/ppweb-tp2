@@ -37,13 +37,53 @@
 }
 
 @layer base {
+    html {
+        color-scheme: dark;
+    }
+
+    body {
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at top, rgba(255, 255, 255, 0.16), transparent 34%),
+            linear-gradient(180deg, #050816 0%, #0b1120 45%, #030712 100%);
+        color: #e5e7eb;
+    }
 
     *,
     ::after,
     ::before,
     ::backdrop,
     ::file-selector-button {
-        border-color: var(--color-gray-200, currentColor);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    :where(.bg-white, .bg-gray-50) {
+        background-color: rgba(15, 23, 42, 0.72) !important;
+        backdrop-filter: blur(18px);
+    }
+
+    :where(.text-gray-900) {
+        color: #f8fafc !important;
+    }
+
+    :where(.text-gray-800) {
+        color: #e2e8f0 !important;
+    }
+
+    :where(.text-gray-700) {
+        color: #cbd5e1 !important;
+    }
+
+    :where(.text-gray-600) {
+        color: #94a3b8 !important;
+    }
+
+    :where(.text-gray-500) {
+        color: #64748b !important;
+    }
+
+    :where(.border-gray-200, .border-gray-300) {
+        border-color: rgba(255, 255, 255, 0.12) !important;
     }
 }
 
