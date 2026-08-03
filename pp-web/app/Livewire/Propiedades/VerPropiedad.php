@@ -9,9 +9,9 @@ class VerPropiedad extends Component
 {
     public $propiedad;
 
-    public function mount($propiedad)
+    public function mount(Propiedad $propiedad)
     {
-        $this->propiedad = Propiedad::with('agente')->findOrFail($propiedad);
+        $this->propiedad = $propiedad->load('agente');
     }
 
     public function render()

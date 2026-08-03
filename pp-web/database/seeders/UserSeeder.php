@@ -13,58 +13,26 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Admin
-        User::create([
-            'name' => 'Administrador',
-            'email' => 'admin@arkham.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'email_verified_at' => now(),
-        ]);
+        $users = [
+            ['name' => 'Administrador',    'email' => 'admin@inmobiliaria.com',  'role' => 'admin'],
+            ['name' => 'Gerente Principal','email' => 'gerente@inmobiliaria.com','role' => 'gerente'],
+            ['name' => 'Maria Gonzalez',   'email' => 'maria@inmobiliaria.com',   'role' => 'agente'],
+            ['name' => 'Juan Perez',       'email' => 'juan@inmobiliaria.com',    'role' => 'agente'],
+            ['name' => 'Ana Lopez',        'email' => 'ana@inmobiliaria.com',     'role' => 'agente'],
+            ['name' => 'Carlos Cliente',   'email' => 'carlos@example.com',       'role' => 'cliente'],
+            ['name' => 'Laura Cliente',    'email' => 'laura@example.com',        'role' => 'cliente'],
+        ];
 
-        // Gerente
-        User::create([
-            'name' => 'Gerente Principal',
-            'email' => 'gerente@arkham.com',
-            'password' => Hash::make('password'),
-            'role' => 'gerente',
-            'email_verified_at' => now(),
-        ]);
-
-        // Agente 1
-        User::create([
-            'name' => 'Carlos Mendoza',
-            'email' => 'carlos@arkham.com',
-            'password' => Hash::make('password'),
-            'role' => 'agente',
-            'email_verified_at' => now(),
-        ]);
-
-        // Agente 2
-        User::create([
-            'name' => 'María González',
-            'email' => 'maria@arkham.com',
-            'password' => Hash::make('password'),
-            'role' => 'agente',
-            'email_verified_at' => now(),
-        ]);
-
-        // Cliente 1
-        User::create([
-            'name' => 'Juan Pérez',
-            'email' => 'juan@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'cliente',
-            'email_verified_at' => now(),
-        ]);
-
-        // Cliente 2
-        User::create([
-            'name' => 'Ana López',
-            'email' => 'ana@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'cliente',
-            'email_verified_at' => now(),
-        ]);
+        foreach ($users as $u) {
+            User::updateOrCreate(
+                ['email' => $u['email']],
+                [
+                    'name' => $u['name'],
+                    'password' => Hash::make('password'),
+                    'role' => $u['role'],
+                    'email_verified_at' => now(),
+                ]
+            );
+        }
     }
 }

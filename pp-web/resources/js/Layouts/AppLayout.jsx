@@ -34,12 +34,14 @@ export default function AppLayout({ children }) {
 
                             {auth.user ? (
                                 <div className="flex items-center space-x-4">
-                                    <span className="text-gray-700">{auth.user.name}</span>
                                     <Link
                                         href="/dashboard"
-                                        className="text-indigo-600 hover:text-indigo-900"
+                                        className="text-gray-700 hover:text-indigo-600 font-medium"
                                     >
-                                        Dashboard
+                                        {auth.user.name}
+                                        <span className="ml-1 text-xs uppercase text-indigo-600 font-semibold">
+                                            ({auth.user.role})
+                                        </span>
                                     </Link>
                                     <Link
                                         href="/logout"
@@ -96,6 +98,28 @@ export default function AppLayout({ children }) {
                             <Link href="/contacto" className="block text-gray-600 hover:text-gray-900 py-2">
                                 Contacto
                             </Link>
+                            {auth.user && (
+                                <>
+                                    <hr className="my-2 border-gray-200" />
+                                    <Link
+                                        href="/dashboard"
+                                        className="block text-gray-800 font-medium hover:text-indigo-600 py-2"
+                                    >
+                                        {auth.user.name}
+                                        <span className="ml-1 text-xs uppercase text-indigo-600 font-semibold">
+                                            ({auth.user.role})
+                                        </span>
+                                    </Link>
+                                    <Link
+                                        href="/logout"
+                                        method="post"
+                                        as="button"
+                                        className="block text-red-600 hover:text-red-800 py-2 w-full text-left"
+                                    >
+                                        Cerrar sesión
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     )}
                 </div>

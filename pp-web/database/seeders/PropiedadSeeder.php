@@ -14,8 +14,8 @@ class PropiedadSeeder extends Seeder
     public function run(): void
     {
         // Obtener agentes
-        $agente1 = User::where('email', 'carlos@arkham.com')->first();
-        $agente2 = User::where('email', 'maria@arkham.com')->first();
+        $agente1 = User::where('email', 'maria@inmobiliaria.com')->first();
+        $agente2 = User::where('email', 'juan@inmobiliaria.com')->first();
 
         // Propiedades del Agente 1
         Propiedad::create([

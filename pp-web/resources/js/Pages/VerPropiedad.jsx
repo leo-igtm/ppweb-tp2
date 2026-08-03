@@ -33,7 +33,7 @@ export default function VerPropiedad({ propiedad = null }) {
 
                         <div className="bg-indigo-50 p-4 rounded-lg mb-6">
                             <p className="text-3xl font-bold text-indigo-600">
-                                ${propiedad.precio.toLocaleString()}
+                                ${parseFloat(propiedad.precio).toLocaleString()}
                             </p>
                             <p className="text-gray-600">
                                 {propiedad.operacion === 'venta' ? 'Venta' : 'Alquiler'}

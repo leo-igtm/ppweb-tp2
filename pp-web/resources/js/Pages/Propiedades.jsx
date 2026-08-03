@@ -96,7 +96,7 @@ export default function Propiedades({ propiedades = [] }) {
                                         {propiedad.ciudad}
                                     </p>
                                     <p className="text-2xl font-bold text-indigo-600 mb-4">
-                                        ${propiedad.precio.toLocaleString()}
+                                        ${parseFloat(propiedad.precio).toLocaleString()}
                                     </p>
                                     <div className="flex gap-4 text-sm text-gray-700 mb-4">
                                         {propiedad.habitaciones > 0 && (

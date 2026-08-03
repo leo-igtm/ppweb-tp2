@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Propiedad;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -45,11 +46,10 @@ class HomeController extends Controller
             'mensaje' => 'required|string|min:10',
         ]);
 
-        // Aquí puedes guardar el mensaje en la base de datos o enviarlo por email
-        \Mail::raw($validated['mensaje'], function ($message) use ($validated) {
+        Mail::raw($validated['mensaje'], function ($message) use ($validated) {
             $message->to('info@arkham.com')
                 ->subject('Nuevo contacto: ' . $validated['asunto'])
-                ->from($validated['email'], $validated['nombre']);
+                ->replyTo($validated['email'], $validated['nombre']);
         });
 
         return back()->with('success', 'Mensaje enviado correctamente');

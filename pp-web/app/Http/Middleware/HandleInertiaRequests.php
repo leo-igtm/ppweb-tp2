@@ -2,22 +2,34 @@
 
 namespace App\Http\Middleware;
 
-use Inertia\Inertia;
 use Illuminate\Http\Request;
-use Closure;
+use Inertia\Middleware;
 
-class HandleInertiaRequests
+class HandleInertiaRequests extends Middleware
 {
-    public function handle(Request $request, Closure $next)
+    protected $rootView = 'app';
+
+    public function share(Request $request): array
     {
-        Inertia::setRootView('app');
-        
-        Inertia::share([
+        $user = $request->user();
+
+        return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $request->user(),
+                'user' => $user ? [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'role' => $user->role,
+                    'permissions' => $user->permissions(),
+                    'properties_count' => $user->isAgente()
+                        ? $user->propiedades()->count()
+                        : null,
+                ] : null,
+            ],
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'error' => fn () => $request->session()->get('error'),
             ],
         ]);
-
-        return $next($request);
     }
 }

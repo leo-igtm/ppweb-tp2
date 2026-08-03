@@ -50,26 +50,31 @@ class ListarPropiedades extends Component
     {
         $propiedad = Propiedad::findOrFail($id);
 
-        // Verificar que el usuario sea admin o el agente propietario
-        if (auth()->user()->isAdmin() ||
-            (auth()->user()->isAgente() && $propiedad->agente_id == auth()->id())) {
-
-            // Eliminar imagen si existe
-            if ($propiedad->imagen && \Storage::disk('public')->exists($propiedad->imagen)) {
-                \Storage::disk('public')->delete($propiedad->imagen);
-            }
-
-            $propiedad->delete();
-            session()->flash('success', 'Propiedad eliminada correctamente.');
-        } else {
+        // Verificar que el usuario tenga permiso
+        if (! auth()->user()->canDeleteProperty($propiedad)) {
             session()->flash('error', 'No tienes permiso para eliminar esta propiedad.');
+            return;
         }
+
+        // Eliminar imagen si existe
+        if ($propiedad->imagen && \Storage::disk('public')->exists($propiedad->imagen)) {
+            \Storage::disk('public')->delete($propiedad->imagen);
+        }
+
+        $propiedad->delete();
+        session()->flash('success', 'Propiedad eliminada correctamente.');
     }
 
     public function render()
     {
-        $propiedades = Propiedad::query()
-            ->with('agente')
+        $query = Propiedad::query()
+            ->with('agente');
+
+        if (auth()->user()->isAgente()) {
+            $query->where('agente_id', auth()->id());
+        }
+
+        $propiedades = $query
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
                     $q->where('titulo', 'like', '%' . $this->search . '%')

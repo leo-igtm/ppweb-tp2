@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GerenteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PropiedadController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Propiedades\ListarPropiedades;
 use App\Livewire\Propiedades\CrearPropiedad;
-use App\Livewire\Propiedades\EditarPropiedad;
 use App\Livewire\Propiedades\VerPropiedad;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -26,12 +28,6 @@ Route::get('servicios', [HomeController::class, 'servicios'])->name('servicios')
 Route::get('contacto', [HomeController::class, 'contacto'])->name('contacto');
 Route::post('contacto', [HomeController::class, 'enviarContacto'])->name('contacto.send');
 
-Route::get('test', function (){
-    $usuario = User::create([
-        'name' => 'Leo',
-        'email' => 'leo@example.com',
-        'password' => bcrypt('leo12345'),]);
-});
 
 
 
@@ -49,10 +45,25 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard/propiedades/{propiedad}', VerPropiedad::class)->name('propiedades.show');
 });
 
-// Rutas de propiedades - solo admin y agentes pueden crear/editar
-Route::middleware(['auth', 'role:admin,agente'])->group(function () {
+// Rutas de administración - solo admin
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('dashboard/admin/usuarios', [AdminController::class, 'usuarios'])->name('admin.usuarios');
+    Route::get('dashboard/admin/estadisticas', [AdminController::class, 'estadisticas'])->name('admin.estadisticas');
+});
+
+// Dashboard de gerente
+Route::middleware(['auth', 'role:gerente'])->group(function () {
+    Route::get('dashboard/gerente', [GerenteController::class, 'dashboard'])->name('gerente.dashboard');
+    Route::get('dashboard/gerente/permisos', [GerenteController::class, 'permisos'])->name('gerente.permisos');
+    Route::patch('dashboard/gerente/permisos', [GerenteController::class, 'actualizarPermisos'])->name('gerente.permisos.update');
+});
+
+// Rutas de propiedades - admin, gerente y agentes pueden crear/editar
+Route::middleware(['auth', 'role:admin,gerente,agente'])->group(function () {
     Route::get('dashboard/propiedades/crear/nueva', CrearPropiedad::class)->name('propiedades.create');
-    Route::get('dashboard/propiedades/{propiedad}/editar', EditarPropiedad::class)->name('propiedades.edit');
+    Route::get('dashboard/propiedades/{propiedad}/editar', [PropiedadController::class, 'edit'])->name('propiedades.edit');
+    Route::post('dashboard/propiedades', [PropiedadController::class, 'store'])->name('propiedades.store');
+    Route::put('dashboard/propiedades/{propiedad}', [PropiedadController::class, 'update'])->name('propiedades.update');
 });
 
 
@@ -66,17 +77,17 @@ Route::get('dashboard', function () {
     if ($user->isAdmin()) {
         return Inertia::render('Dashboard/Admin');
     }
+    if ($user->isGerente()) {
+        return redirect()->route('gerente.dashboard');
+    }
     if ($user->isAgente()) {
         return Inertia::render('Dashboard/Agente');
     }
     if ($user->isCliente()) {
         return Inertia::render('Dashboard/Cliente');
     }
-    if ($user->isGerente()) {
-        return Inertia::render('Dashboard/Gerente');
-    }
 
-    return Inertia::render('Welcome');
+    abort(403, 'No tienes permiso para acceder al dashboard.');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 

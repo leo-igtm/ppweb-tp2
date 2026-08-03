@@ -26,13 +26,10 @@ class EditarPropiedad extends Component
     public $imagen;
     public $imagenActual;
 
-    public function mount($propiedad)
+    public function mount(Propiedad $propiedad)
     {
-        $propiedad = Propiedad::findOrFail($propiedad);
-
         // Verificar permisos
-        if (!auth()->user()->isAdmin() &&
-            (!auth()->user()->isAgente() || $propiedad->agente_id != auth()->id())) {
+        if (! auth()->user()->canEditProperty($propiedad)) {
             abort(403, 'No tienes permiso para editar esta propiedad.');
         }
 

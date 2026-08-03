@@ -1,8 +1,6 @@
 <?php
 
-use App\Livewire\Auth\Login;
 use App\Models\User;
-use Livewire\Livewire;
 
 test('login screen can be rendered', function () {
     $response = $this->get('/login');
@@ -13,28 +11,24 @@ test('login screen can be rendered', function () {
 test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();
 
-    $response = Livewire::test(Login::class)
-        ->set('email', $user->email)
-        ->set('password', 'password')
-        ->call('login');
+    $response = $this->post('/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
 
-    $response
-        ->assertHasNoErrors()
-        ->assertRedirect(route('dashboard', absolute: false));
-
+    $response->assertRedirect(route('dashboard', absolute: false));
     $this->assertAuthenticated();
 });
 
 test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
-    $response = Livewire::test(Login::class)
-        ->set('email', $user->email)
-        ->set('password', 'wrong-password')
-        ->call('login');
+    $response = $this->post('/login', [
+        'email' => $user->email,
+        'password' => 'wrong-password',
+    ]);
 
-    $response->assertHasErrors('email');
-
+    $response->assertSessionHasErrors('email');
     $this->assertGuest();
 });
 

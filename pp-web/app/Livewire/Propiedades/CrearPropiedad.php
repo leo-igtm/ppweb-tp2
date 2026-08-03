@@ -64,7 +64,7 @@ class CrearPropiedad extends Component
 
     public function guardar()
     {
-        if (!auth()->user()->isAdmin() && !auth()->user()->isAgente()) {
+        if (!auth()->user()->hasPermission('create_property')) {
             abort(403, 'No tienes permiso para crear propiedades.');
         }
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Propiedad extends Model
 {
@@ -36,11 +37,20 @@ class Propiedad extends Model
         'banos' => 'integer',
     ];
 
+    protected $appends = [
+        'imagen_url',
+    ];
+
     /**
      * Relación con el agente (usuario)
      */
     public function agente()
     {
         return $this->belongsTo(User::class, 'agente_id');
+    }
+
+    public function getImagenUrlAttribute(): ?string
+    {
+        return $this->imagen ? Storage::url($this->imagen) : null;
     }
 }
